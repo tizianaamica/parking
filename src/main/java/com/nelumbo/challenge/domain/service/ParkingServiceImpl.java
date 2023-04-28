@@ -4,7 +4,7 @@ import com.nelumbo.challenge.domain.exception.ParkingNotFoundException;
 import com.nelumbo.challenge.domain.model.Parking;
 import com.nelumbo.challenge.domain.model.Vehicle;
 import com.nelumbo.challenge.domain.repository.ParkingRepository;
-import com.nelumbo.challenge.domain.repository.VehicleRespository;
+import com.nelumbo.challenge.domain.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class ParkingServiceImpl implements ParkingService {
 
     private final ParkingRepository parkingRepository;
-    private final VehicleRespository vehicleRepository;
+    private final VehicleRepository vehicleRepository;
 
 
     @Override
@@ -36,9 +36,7 @@ public class ParkingServiceImpl implements ParkingService {
         createParking.setParkingAddress(parking.getParkingAddress());
         createParking.setParkingPhone(parking.getParkingPhone());
         createParking.setMemberId(parking.getMemberId());
-        Parking newParking = parkingRepository.save(createParking);
-
-        return newParking;
+        return parkingRepository.save(createParking);
     }
 
     @Override

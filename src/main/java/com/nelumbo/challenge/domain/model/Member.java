@@ -12,12 +12,13 @@ import lombok.NoArgsConstructor;
 public class Member {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer memberId;
 
     @Column
     private String memberName;
 
     @Column
-    private String email;
+    private String memberEmail;
 
 }

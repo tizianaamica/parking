@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 public class RecordDto {
 
     private Integer recordId;
+    private Integer parkingId;
+    private String vehiclePlate;
     private String vehicleEntryDate;
     private String vehicleExitDate;
+
 }

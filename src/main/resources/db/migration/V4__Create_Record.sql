@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS "record"
 (
     record_id SERIAL PRIMARY KEY,
+    "vehicle_plate" TEXT NOT NULL,
     "vehicle_entry_date" TIMESTAMP WITHOUT TIME ZONE,
     "vehicle_exit_date" TIMESTAMP WITHOUT TIME ZONE,
     "vehicle_id" INTEGER,

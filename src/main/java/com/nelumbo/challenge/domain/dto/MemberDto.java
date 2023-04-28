@@ -13,6 +13,6 @@ public class MemberDto {
 
     private Integer memberId;
     private String memberName;
-    private String email;
+    private String memberEmail;
 
 }

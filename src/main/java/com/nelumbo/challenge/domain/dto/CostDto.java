@@ -15,4 +15,5 @@ public class CostDto {
         private String hourlyRate;
         private String numberHours;
         private Integer totalCost;
+
 }

@@ -15,7 +15,14 @@ import java.time.OffsetDateTime;
 public class Record {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer recordId;
+
+    @Column
+    private Integer parkingId;
+
+    @Column
+    private String vehiclePlate;
 
     @Column
     @CreationTimestamp
