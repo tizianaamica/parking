@@ -10,11 +10,11 @@ public interface ParkingService {
 
     List<Parking> listOfParkings();
 
-    Parking findParkingById(Long id);
+    Parking findParkingById(Integer id);
 
     Parking saveParking(Parking parking);
 
-    Parking updateParking(Parking parking);
+    Parking updateParking(Integer id, Parking parking);
 
-    void deleteParking(Long id);
+    void deleteParking(Integer id);
 }

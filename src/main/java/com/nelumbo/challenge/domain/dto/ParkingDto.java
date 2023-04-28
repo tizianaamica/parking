@@ -12,8 +12,9 @@ import lombok.NoArgsConstructor;
 public class ParkingDto {
 
     private Integer parkingId;
-    private String name;
-    private String adress;
-    private String phone;
+    private String parkingName;
+    private String parkingAddress;
+    private String parkingPhone;
+    private Integer memberId;
 
 }

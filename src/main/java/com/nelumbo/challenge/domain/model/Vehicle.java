@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class Vehicle {
 
     @Id
-    @Column(name = "id_vehiculo")
     private Integer vehicleId;
 
     @Column
@@ -24,4 +23,6 @@ public class Vehicle {
     @Column
     private String vehiclePlate;
 
+    @Column
+    private Integer parkingId;
 }

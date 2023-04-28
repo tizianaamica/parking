@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 public class Cost {
 
     @Id
-    @Column(name = "cost_id")
     private Integer costId;
 
     @Column

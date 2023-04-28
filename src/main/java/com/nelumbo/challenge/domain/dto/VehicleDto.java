@@ -15,5 +15,6 @@ public class VehicleDto {
     private String vehicleMake;
     private String vehicleType;
     private String vehiclePlate;
+    private Integer parkingId;
 
 }

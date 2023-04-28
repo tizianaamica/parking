@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class Member {
 
     @Id
-    @Column(name = "id_socio")
     private Integer memberId;
 
     @Column

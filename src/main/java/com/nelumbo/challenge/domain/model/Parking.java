@@ -2,26 +2,32 @@ package com.nelumbo.challenge.domain.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Parking {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "parking_id")
     private Integer parkingId;
 
     @Column
-    private String name;
+    private String parkingName;
 
     @Column
-    private String adress;
+    private String parkingAddress;
 
     @Column
-    private String phone;
+    private String parkingPhone;
+
+    @Column
+    private Integer memberId;
 
 }

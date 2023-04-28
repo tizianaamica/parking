@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+
+import java.time.OffsetDateTime;
 
 @Entity
 @Data
@@ -12,13 +15,14 @@ import lombok.NoArgsConstructor;
 public class Record {
 
     @Id
-    @Column(name = "record_id")
     private Integer recordId;
 
     @Column
-    private String vehicleEntryDate;
+    @CreationTimestamp
+    private OffsetDateTime vehicleEntryDate;
 
     @Column
-    private String vehicleExitDate;
+    @CreationTimestamp
+    private OffsetDateTime vehicleExitDate;
 
 }

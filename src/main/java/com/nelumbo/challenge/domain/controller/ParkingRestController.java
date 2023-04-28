@@ -25,23 +25,23 @@ public class ParkingRestController {
                 .stream().map(this::convertToDto).collect(toList());
     }
 
-    @GetMapping("/{id}")
-    public Parking getParkingById(@PathVariable Long id) {
+    @GetMapping("/parking/{id}")
+    public Parking getParkingById(@PathVariable Integer id) {
         return parkingService.findParkingById(id);
     }
 
-    @PostMapping
+    @PostMapping("/createParking")
     public Parking saveParking(@RequestBody Parking parking) {
         return parkingService.saveParking(parking);
     }
 
-    @PutMapping("/{id}")
-    public Parking updateParking(@RequestBody Parking parking) {
-        return parkingService.saveParking(parking);
+    @PutMapping("/updateParking/{id}")
+    public Parking updateParking(@PathVariable Integer id, @RequestBody Parking parking) {
+        return parkingService.updateParking(id, parking);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteParking(@PathVariable Long id) {
+    @DeleteMapping("/deleteParking/{id}")
+    public void deleteParking(@PathVariable Integer id) {
         parkingService.deleteParking(id);
     }
 
