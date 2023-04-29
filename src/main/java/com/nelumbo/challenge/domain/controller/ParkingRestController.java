@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static org.springframework.http.HttpStatus.CREATED;
 
 @RequiredArgsConstructor
 @RestController
@@ -31,6 +32,7 @@ public class ParkingRestController {
     }
 
     @PostMapping("/createParking")
+    @ResponseStatus(CREATED)
     public Parking saveParking(@RequestBody Parking parking) {
         return parkingService.saveParking(parking);
     }
