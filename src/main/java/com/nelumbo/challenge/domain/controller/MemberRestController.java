@@ -22,7 +22,6 @@ public class MemberRestController {
 
     private final ModelMapper modelMapper;
 
-
     @PostMapping("/createMember")
     @ResponseStatus(CREATED)
     public MemberDto createMember(@RequestBody Member member) {

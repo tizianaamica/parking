@@ -22,7 +22,9 @@ public class RecordServiceImpl implements RecordService {
         Record createEntryRecord = Record.builder()
                 .vehiclePlate(record.getVehiclePlate())
                 .parkingId(record.getParkingId())
+                .vehicleId(record.getVehicleId())
                 .vehicleEntryDate(record.getVehicleEntryDate())
+                .vehicleCheckoutDate(null)
                 .build();
         return recordRepository.save(createEntryRecord);
     }
@@ -36,7 +38,7 @@ public class RecordServiceImpl implements RecordService {
                     .vehiclePlate(existingRecord.getVehiclePlate())
                     .parkingId(existingRecord.getParkingId())
                     .vehicleEntryDate(existingRecord.getVehicleEntryDate())
-                    .vehicleExitDate(record.getVehicleExitDate())
+                    .vehicleCheckoutDate(record.getVehicleCheckoutDate())
                     .build();
             return recordRepository.save(updateRecord);
         } else {

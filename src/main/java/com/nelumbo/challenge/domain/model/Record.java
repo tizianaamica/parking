@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 @Builder
@@ -24,6 +25,9 @@ public class Record {
     private Integer parkingId;
 
     @Column
+    private Integer vehicleId;
+
+    @Column
     private String vehiclePlate;
 
     @Column
@@ -32,6 +36,6 @@ public class Record {
 
     @Column
     @CreationTimestamp
-    private OffsetDateTime vehicleExitDate;
+    private OffsetDateTime vehicleCheckoutDate;
 
 }

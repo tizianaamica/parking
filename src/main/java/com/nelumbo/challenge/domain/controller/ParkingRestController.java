@@ -47,7 +47,6 @@ public class ParkingRestController {
         parkingService.deleteParking(id);
     }
 
-
     private ParkingDto convertToDto(Parking parking) {
         return modelMapper.map(parking, ParkingDto.class);
     }

@@ -30,4 +30,10 @@ public class Parking {
     @Column
     private Integer memberId;
 
+    @Column
+    private Integer maxCapacity;
+
+    @Column
+    private Boolean previous;
+
 }

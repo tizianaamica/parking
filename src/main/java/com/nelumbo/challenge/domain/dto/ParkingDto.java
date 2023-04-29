@@ -16,5 +16,7 @@ public class ParkingDto {
     private String parkingAddress;
     private String parkingPhone;
     private Integer memberId;
+    private Integer maxCapacity;
+    private Boolean previous;
 
 }

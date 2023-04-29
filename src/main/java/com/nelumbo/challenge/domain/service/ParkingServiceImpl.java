@@ -31,11 +31,14 @@ public class ParkingServiceImpl implements ParkingService {
 
     @Override
     public Parking saveParking(Parking parking) {
-        Parking createParking = new Parking();
-        createParking.setParkingName(parking.getParkingName());
-        createParking.setParkingAddress(parking.getParkingAddress());
-        createParking.setParkingPhone(parking.getParkingPhone());
-        createParking.setMemberId(parking.getMemberId());
+        Parking createParking = Parking.builder()
+                .parkingName(parking.getParkingName())
+                .parkingAddress(parking.getParkingAddress())
+                .parkingPhone(parking.getParkingPhone())
+                .memberId(parking.getMemberId())
+                .maxCapacity(parking.getMaxCapacity())
+                .previous(parking.getPrevious())
+                .build();
         return parkingRepository.save(createParking);
     }
 
@@ -50,6 +53,8 @@ public class ParkingServiceImpl implements ParkingService {
                     .parkingAddress(parking.getParkingAddress())
                     .parkingPhone(parking.getParkingPhone())
                     .memberId(parking.getMemberId())
+                    .maxCapacity(parking.getMaxCapacity())
+                    .previous(parking.getPrevious())
                     .build();
             return parkingRepository.save(updateParking);
         } else {

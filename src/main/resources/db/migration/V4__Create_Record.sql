@@ -1,9 +1,9 @@
 CREATE TABLE IF NOT EXISTS "record"
 (
     record_id SERIAL PRIMARY KEY,
-    "vehicle_plate" TEXT NOT NULL,
+    "vehicle_plate" VARCHAR(6) NOT NULL CHECK ("vehicle_plate" ~ '^[a-zA-Z0-9]{1,6}$'),
     "vehicle_entry_date" TIMESTAMP WITHOUT TIME ZONE,
-    "vehicle_exit_date" TIMESTAMP WITHOUT TIME ZONE,
+    "vehicle_checkout_date" TIMESTAMP WITHOUT TIME ZONE,
     "vehicle_id" INTEGER,
     "parking_id" INTEGER,
     FOREIGN KEY ("vehicle_id") REFERENCES "vehicle" ("vehicle_id"),

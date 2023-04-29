@@ -13,8 +13,10 @@ public class RecordDto {
 
     private Integer recordId;
     private Integer parkingId;
+    private Integer vehicleId;
     private String vehiclePlate;
     private String vehicleEntryDate;
-    private String vehicleExitDate;
+    private String vehicleCheckoutDate;
+
 
 }
