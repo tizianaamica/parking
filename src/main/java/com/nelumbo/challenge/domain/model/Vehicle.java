@@ -25,4 +25,5 @@ public class Vehicle {
 
     @Column
     private Integer parkingId;
+
 }
