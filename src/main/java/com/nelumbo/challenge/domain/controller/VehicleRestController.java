@@ -26,7 +26,7 @@ public class VehicleRestController {
 
     @GetMapping("/vehicles/{memberId}")
     public List<VehicleDto> getAllVehiclesByMember(@PathVariable Integer memberId) {
-        return vehicleService.listOfVehiclesByParkingIdAndMemberId(memberId)
+        return vehicleService.listOfVehiclesByMemberId(memberId)
                 .stream().map(this::convertToDto).collect(toList());
     }
 

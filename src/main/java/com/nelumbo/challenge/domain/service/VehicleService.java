@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface VehicleService {
 
-    List<Vehicle> listOfVehiclesByParkingIdAndMemberId(Integer memberId);
+    List<Vehicle> listOfVehiclesByMemberId(Integer memberId);
 
     List<Vehicle> listOfVehicles();
 

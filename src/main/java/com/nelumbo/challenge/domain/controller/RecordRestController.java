@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
+import static org.springframework.http.HttpStatus.CREATED;
 import static org.springframework.http.HttpStatus.OK;
 
 @RequiredArgsConstructor
@@ -17,7 +18,7 @@ public class RecordRestController {
     private final ModelMapper modelMapper;
 
     @PostMapping("/createEntryRecord")
-    @ResponseStatus(OK)
+    @ResponseStatus(CREATED)
     public RecordDto createRecord(@RequestBody Record record) {
         return convertToDto(recordService.createEntryRecord(record));
     }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
     List<Vehicle> findByParkingId(Integer parkingId);
 
-    @Query("SELECT v FROM Vehicle v JOIN Parking p ON v.parkingId = p.parkingId WHERE p.memberId = :memberId")
+    @Query("SELECT v FROM Vehicle v JOIN v.parking p WHERE p.memberId = :memberId")
     List<Vehicle> findVehicleByMemberId(Integer memberId);
 
     @Query(value =

@@ -35,7 +35,6 @@ public class Record {
     private OffsetDateTime vehicleEntryDate;
 
     @Column
-    @CreationTimestamp
     private OffsetDateTime vehicleCheckoutDate;
 
 }

@@ -19,7 +19,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
-    public List<Vehicle> listOfVehiclesByParkingIdAndMemberId(Integer memberId) {
+    public List<Vehicle> listOfVehiclesByMemberId(Integer memberId) {
         return vehicleRepository.findVehicleByMemberId(memberId);
     }
 

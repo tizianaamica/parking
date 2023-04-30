@@ -5,18 +5,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.OffsetDateTime;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class RecordDto {
 
-    private Integer recordId;
     private Integer parkingId;
-    private Integer vehicleId;
     private String vehiclePlate;
-    private String vehicleEntryDate;
-    private String vehicleCheckoutDate;
-
+    private OffsetDateTime vehicleEntryDate;
 
 }

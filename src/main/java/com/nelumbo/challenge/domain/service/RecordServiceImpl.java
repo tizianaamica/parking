@@ -23,8 +23,6 @@ public class RecordServiceImpl implements RecordService {
                 .vehiclePlate(record.getVehiclePlate())
                 .parkingId(record.getParkingId())
                 .vehicleId(record.getVehicleId())
-                .vehicleEntryDate(record.getVehicleEntryDate())
-                .vehicleCheckoutDate(null)
                 .build();
         return recordRepository.save(createEntryRecord);
     }
