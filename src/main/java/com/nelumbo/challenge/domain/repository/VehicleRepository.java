@@ -23,4 +23,8 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
     Vehicle findVehicleAndParkingForVehicleId(Integer vehicleId);
 
     List<Vehicle> findVehiclesByParkingId(Integer parkingId);
+
+    @Query("SELECT r.vehiclePlate FROM Vehicle v JOIN Record r ON v.vehicleId = r.vehicleId WHERE v.parkingId = :parkingId")
+    List<Vehicle> findByParkingId(Integer parkingId);
+
 }

@@ -46,4 +46,9 @@ public class RecordServiceImpl implements RecordService {
         }
     }
 
+    @Override
+    public Record findRecordByParkingId(Integer parkingId) {
+        return recordRepository.findByParkingId(parkingId);
+    }
+
 }

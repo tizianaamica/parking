@@ -18,9 +18,9 @@ public class VehicleRestController {
     private final VehicleService vehicleService;
     private final ModelMapper modelMapper;
 
-    @GetMapping("/vehicles")
-    public List<VehicleDto> getAllVehicles() {
-        return vehicleService.listOfVehicles()
+    @GetMapping("/vehicles/{parkingId}/parking")
+    public List<VehicleDto> getAllVehiclesWithParking(@PathVariable Integer parkingId) {
+        return vehicleService.listOfVehiclesByParking(parkingId)
                 .stream().map(this::convertToDto).collect(toList());
     }
 
@@ -31,8 +31,8 @@ public class VehicleRestController {
     }
 
     @GetMapping("/vehicle/{vehicleId}")
-    public Vehicle getVehicleById(@PathVariable Integer vehicleId) {
-        return vehicleService.findVehicleById(vehicleId);
+    public VehicleDto getVehicleById(@PathVariable Integer vehicleId) {
+        return convertToDto(vehicleService.findVehicleById(vehicleId));
     }
 
     private VehicleDto convertToDto(Vehicle vehicle) {

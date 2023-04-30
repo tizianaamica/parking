@@ -8,5 +8,6 @@ import java.util.Optional;
 public interface RecordRepository extends JpaRepository<Record, Integer> {
     boolean existsByVehiclePlate(String vehiclePlate);
     Optional<Record> findByVehiclePlate(String vehiclePlate);
+    Record findByParkingId(Integer parkingId);
 
 }

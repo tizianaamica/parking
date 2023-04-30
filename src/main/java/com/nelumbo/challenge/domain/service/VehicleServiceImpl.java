@@ -14,8 +14,8 @@ public class VehicleServiceImpl implements VehicleService {
     private final VehicleRepository vehicleRepository;
 
     @Override
-    public List<Vehicle> listOfVehicles() {
-        return vehicleRepository.findAll();
+    public List<Vehicle> listOfVehiclesByParking(Integer parkingId) {
+        return vehicleRepository.findByParkingId(parkingId);
     }
 
     @Override
