@@ -7,3 +7,5 @@ CREATE TABLE IF NOT EXISTS "vehicle"
     "parking_id" INTEGER NOT NULL,
     FOREIGN KEY ("parking_id") REFERENCES "parking" ("parking_id")
 );
+
+ALTER TABLE vehicle ADD CONSTRAINT unique_vehicle_plate UNIQUE (vehicle_plate);

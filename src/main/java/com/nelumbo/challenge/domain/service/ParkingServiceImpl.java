@@ -1,6 +1,6 @@
 package com.nelumbo.challenge.domain.service;
 
-import com.nelumbo.challenge.domain.exception.ParkingNotFoundException;
+import com.nelumbo.challenge.domain.exception.BadRequestException;
 import com.nelumbo.challenge.domain.model.Parking;
 import com.nelumbo.challenge.domain.model.Vehicle;
 import com.nelumbo.challenge.domain.repository.ParkingRepository;
@@ -33,11 +33,10 @@ public class ParkingServiceImpl implements ParkingService {
     public Parking saveParking(Parking parking) {
         Parking createParking = Parking.builder()
                 .parkingName(parking.getParkingName())
-                .parkingAddress(parking.getParkingAddress())
-                .parkingPhone(parking.getParkingPhone())
                 .memberId(parking.getMemberId())
                 .maxCapacity(parking.getMaxCapacity())
                 .previous(parking.getPrevious())
+                .hourlyRate(parking.getHourlyRate())
                 .build();
         return parkingRepository.save(createParking);
     }
@@ -50,11 +49,10 @@ public class ParkingServiceImpl implements ParkingService {
             Parking updateParking = Parking.builder()
                     .parkingId(existingParking.getParkingId())
                     .parkingName(parking.getParkingName())
-                    .parkingAddress(parking.getParkingAddress())
-                    .parkingPhone(parking.getParkingPhone())
                     .memberId(parking.getMemberId())
                     .maxCapacity(parking.getMaxCapacity())
                     .previous(parking.getPrevious())
+                    .hourlyRate(parking.getHourlyRate())
                     .build();
             return parkingRepository.save(updateParking);
         } else {
@@ -64,15 +62,17 @@ public class ParkingServiceImpl implements ParkingService {
 
     @Override
     public void deleteParking(Integer parkingId) {
-        Parking parking = parkingRepository.findById(parkingId)
-                .orElseThrow(() -> new ParkingNotFoundException("Parking not found with id " + parkingId));
-        List<Vehicle> vehicles = vehicleRepository.findByParkingId(parkingId);
-
-        if (!vehicles.isEmpty()) {
-            for (Vehicle vehicle : vehicles) {
-                vehicleRepository.delete(vehicle);
+        Optional<Parking> parking = parkingRepository.findById(parkingId);
+        if (parking.isPresent()) {
+            List<Vehicle> vehicles = vehicleRepository.findVehiclesByParkingId(parkingId);
+            if (vehicles.isEmpty()) {
+                parkingRepository.deleteById(parkingId);
+            } else {
+                throw new BadRequestException("The parking with id " + parkingId + " has associated vehicles");
             }
+        } else {
+            throw new BadRequestException("There is no parking with that id: " + parkingId);
         }
-        parkingRepository.delete(parking);
     }
+
 }

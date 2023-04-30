@@ -17,4 +17,5 @@ public interface ParkingService {
     Parking updateParking(Integer id, Parking parking);
 
     void deleteParking(Integer id);
+
 }

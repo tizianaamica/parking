@@ -13,8 +13,6 @@ import java.time.OffsetDateTime;
 @NoArgsConstructor
 public class RecordDto {
 
-    private Integer parkingId;
-    private String vehiclePlate;
-    private OffsetDateTime vehicleEntryDate;
+    private Integer recordId;
 
 }

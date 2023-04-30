@@ -22,12 +22,6 @@ public class Parking {
     private String parkingName;
 
     @Column
-    private String parkingAddress;
-
-    @Column
-    private String parkingPhone;
-
-    @Column
     private Integer memberId;
 
     @Column
@@ -35,5 +29,8 @@ public class Parking {
 
     @Column
     private Boolean previous;
+
+    @Column
+    private Integer hourlyRate;
 
 }

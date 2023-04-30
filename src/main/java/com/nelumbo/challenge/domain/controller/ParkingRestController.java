@@ -27,19 +27,19 @@ public class ParkingRestController {
     }
 
     @GetMapping("/parking/{id}")
-    public Parking getParkingById(@PathVariable Integer id) {
-        return parkingService.findParkingById(id);
+    public ParkingDto getParkingById(@PathVariable Integer id) {
+        return convertToDto(parkingService.findParkingById(id));
     }
 
     @PostMapping("/createParking")
     @ResponseStatus(CREATED)
-    public Parking saveParking(@RequestBody Parking parking) {
-        return parkingService.saveParking(parking);
+    public ParkingDto saveParking(@RequestBody Parking parking) {
+        return convertToDto(parkingService.saveParking(parking));
     }
 
     @PutMapping("/updateParking/{id}")
-    public Parking updateParking(@PathVariable Integer id, @RequestBody Parking parking) {
-        return parkingService.updateParking(id, parking);
+    public ParkingDto updateParking(@PathVariable Integer id, @RequestBody Parking parking) {
+        return convertToDto(parkingService.updateParking(id, parking));
     }
 
     @DeleteMapping("/deleteParking/{id}")

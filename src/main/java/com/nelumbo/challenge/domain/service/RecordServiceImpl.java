@@ -2,10 +2,13 @@ package com.nelumbo.challenge.domain.service;
 
 import com.nelumbo.challenge.domain.exception.BadRequestException;
 import com.nelumbo.challenge.domain.model.Record;
+import com.nelumbo.challenge.domain.model.Vehicle;
 import com.nelumbo.challenge.domain.repository.RecordRepository;
+import com.nelumbo.challenge.domain.repository.VehicleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
@@ -36,7 +39,6 @@ public class RecordServiceImpl implements RecordService {
                     .vehiclePlate(existingRecord.getVehiclePlate())
                     .parkingId(existingRecord.getParkingId())
                     .vehicleEntryDate(existingRecord.getVehicleEntryDate())
-                    .vehicleCheckoutDate(record.getVehicleCheckoutDate())
                     .build();
             return recordRepository.save(updateRecord);
         } else {
