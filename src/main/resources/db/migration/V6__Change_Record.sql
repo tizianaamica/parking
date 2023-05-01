@@ -1,0 +1,1 @@
+ALTER TABLE "record" ADD COLUMN "vehicle_checkout" BOOLEAN DEFAULT FALSE;

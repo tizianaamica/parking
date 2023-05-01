@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
+
     @Query("SELECT v FROM Vehicle v JOIN Parking p ON v.parkingId = p.parkingId WHERE p.memberId = :memberId")
     List<Vehicle> findVehicleByMemberId(Integer memberId);
 
@@ -22,9 +23,14 @@ public interface VehicleRepository extends JpaRepository<Vehicle, Integer> {
             nativeQuery = true)
     Vehicle findVehicleAndParkingForVehicleId(Integer vehicleId);
 
+    @Query("SELECT v FROM Vehicle v JOIN Parking p ON v.parkingId = p.parkingId WHERE p.parkingId = :parkingId")
     List<Vehicle> findVehiclesByParkingId(Integer parkingId);
 
     @Query("SELECT r.vehiclePlate FROM Vehicle v JOIN Record r ON v.vehicleId = r.vehicleId WHERE v.parkingId = :parkingId")
     List<Vehicle> findByParkingId(Integer parkingId);
+
+    boolean existsByVehiclePlate(String vehiclePlate);
+
+    Vehicle findByVehiclePlate(String vehiclePlate);
 
 }

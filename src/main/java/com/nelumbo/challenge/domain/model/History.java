@@ -3,7 +3,6 @@ package com.nelumbo.challenge.domain.model;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Builder.Default;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -15,27 +14,17 @@ import java.time.OffsetDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Record {
+public class History {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer recordId;
-
-    @Column
-    private Integer parkingId;
-
-    @Column
-    private Integer vehicleId;
-
-    @Column
-    private String vehiclePlate;
+    private Integer historyId;
 
     @Column
     @CreationTimestamp
-    private OffsetDateTime vehicleEntryDate;
+    private OffsetDateTime vehicleCheckoutDate;
 
     @Column
-    @Default
-    private Boolean vehicleCheckout = false;
+    private Integer recordId;
 
 }
