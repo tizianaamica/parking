@@ -1,9 +1,7 @@
 package com.nelumbo.challenge.domain.controller;
 
 import com.nelumbo.challenge.domain.dto.MemberDto;
-import com.nelumbo.challenge.domain.dto.ParkingDto;
 import com.nelumbo.challenge.domain.model.Member;
-import com.nelumbo.challenge.domain.model.Parking;
 import com.nelumbo.challenge.domain.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;

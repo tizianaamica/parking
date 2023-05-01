@@ -17,4 +17,5 @@ public class MemberServiceImpl implements MemberService {
         createMember.setMemberEmail(member.getMemberEmail());
         return memberRepository.save(createMember);
     }
+
 }

@@ -31,8 +31,4 @@ public class Vehicle {
     @Column(name = "parking_id")
     private Integer parkingId;
 
-//    @ManyToOne(fetch = EAGER)
-//    @JoinColumn(name="parkingId")
-//    private Parking parking;
-
 }
