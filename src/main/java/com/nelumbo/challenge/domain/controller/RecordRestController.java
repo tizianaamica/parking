@@ -2,7 +2,9 @@ package com.nelumbo.challenge.domain.controller;
 
 import com.nelumbo.challenge.domain.dto.RecordDto;
 import com.nelumbo.challenge.domain.dto.RecordListDto;
+import com.nelumbo.challenge.domain.model.Email;
 import com.nelumbo.challenge.domain.model.Record;
+import com.nelumbo.challenge.domain.service.EmailServiceFeign;
 import com.nelumbo.challenge.domain.service.RecordService;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -18,6 +20,7 @@ import static org.springframework.http.HttpStatus.OK;
 public class RecordRestController {
 
     private final RecordService recordService;
+    private final EmailServiceFeign emailServiceFeign;
     private final ModelMapper modelMapper;
 
     @PostMapping("/createEntryRecord")
@@ -36,6 +39,12 @@ public class RecordRestController {
     @ResponseStatus(OK)
     public RecordListDto getRecordById(@PathVariable Integer parkingId) {
         return convertToDtoList(recordService.findRecordByParkingId(parkingId));
+    }
+
+    @PostMapping("/sendEmail")
+    @ResponseStatus(OK)
+    public Email sendEmail(@RequestBody Email email) {
+        return emailServiceFeign.sendEmail(email);
     }
 
     private RecordDto convertToDto(Record record) {
